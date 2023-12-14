@@ -50,38 +50,45 @@ namespace rabbitMQ.publisher
 
         public void Publish_AcessHistory(AcessHistory acessHistory)
         {
-            RMQConnection rMQConnection = new RMQConnection();
-
-            var factory = rMQConnection.RMQ_NewConnection();
 
             try
             {
+                RMQConnection rMQConnection = new RMQConnection();
+
+                var factory = rMQConnection.RMQ_NewConnection();
+
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel()) //Cria um modelo e um canal novo para o envio
                 {
                     channel.ConfirmSelect(); //Habilita o reconhecimento publisher
-
                     channel.BasicAcks += Confirmation_Event; //Reconhece uma ou mais mensagens
                     channel.BasicNacks += NonConfirmation_Event; //Rejeita uma ou mais mensagens
 
-                    channel.QueueDeclare("histAcess", true, false, false, null);
+                    // Create an exchange
+                    channel.ExchangeDeclare("my-exchange", ExchangeType.Direct, true, false);
 
-                    var json = Newtonsoft.Json.JsonConvert.SerializeObject(acessHistory);
+                    // Create an queue
+                    channel.QueueDeclare("histAcess", true, false, false);
 
-                    var body = Encoding.UTF8.GetBytes(json);
+                    // Bind the exchange to the queue
+                    channel.QueueBind("histAcess", "my-exchange", "histAcess");
 
-                    channel.BasicPublish(exchange: "",
-                        routingKey: "histAcess",
-                        basicProperties: null,
-                        body: body);
+                    // declare message
+                    var jsonMessage = Newtonsoft.Json.JsonConvert.SerializeObject(acessHistory);
+                    var body = Encoding.UTF8.GetBytes(jsonMessage);
+
+                    channel.BasicPublish(exchange: "my-exchange",
+                                         routingKey: "histAcess",
+                                         basicProperties: null,
+                                         body: body);
 
                     Console.WriteLine("Mensagem enviada para o rbMQ...");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.StackTrace);
-                Console.ReadKey();
+                Console.WriteLine(ex.Message);
+                Console.Read();
             }
         }
 

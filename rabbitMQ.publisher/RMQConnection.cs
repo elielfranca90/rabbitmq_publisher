@@ -17,7 +17,7 @@ namespace rabbitMQ.publisher
         {
             var factory = new ConnectionFactory()
             {
-                HostName = "10.0.0.225",
+                HostName = "localhost",
                 Port = AmqpTcpEndpoint.UseDefaultPort,
                 UserName = "guest",
                 Password = "guest"

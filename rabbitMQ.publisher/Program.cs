@@ -17,26 +17,27 @@ namespace rabbitMQ.publisher
 
             while(true)
             {
-                var product = new Product();
+                //var product = new Product();
 
-                product.Id = i;
-                product.EAN = "";
-                product.ProdDescription = $"PRODUTO_{i}";
-                product.InternalCode = (i + 1).ToString();
-                product.UserCNPJ = USER;
+                //product.Id = i;
+                //product.EAN = "";
+                //product.ProdDescription = $"PRODUTO_{i}";
+                //product.InternalCode = (i + 1).ToString();
+                //product.UserCNPJ = USER;
 
                 Thread.Sleep(500);
 
                 var acessHist = new AcessHistory();
 
-                acessHist.CNPJ = "";
+                acessHist.CNPJ = "39104545850";
                 acessHist.AcessHistDate = DateTime.Now.ToShortDateString();
                 acessHist.AcessHistHour = DateTime.Now.ToShortTimeString();
-                acessHist.AcessHistTotalProductsSent = 0;
-                acessHist.AcessHistTotalProductsReceived = 0;
+                acessHist.AcessHistTotalProductsSent = i;
+                acessHist.AcessHistTotalProductsReceived = i+1;
 
                 //rbMQ.Publish(product, acessHist);
-                rbMQ.Publish_ProdClient(product);
+                //rbMQ.Publish_ProdClient(product);
+
                 rbMQ.Publish_AcessHistory(acessHist);
 
                 i++;

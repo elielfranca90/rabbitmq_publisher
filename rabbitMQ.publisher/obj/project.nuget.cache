@@ -1,14 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "6+6uDgSMBt3qWISysYi83TTSWpFeILRYKVNkptwXgL1u4uMknTWQezCvUQJiZOtyY9mISwAQmtVZ6zOpzbroIw==",
+  "dgSpecHash": "2Xy3SkmXd/OWpI0QppAhReVU58UPM91qmV7lvffUrj9lkf5smRSrzO1u/80lK9ieDYLJigCt/CLw7YoHQug9gQ==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\eliel\\rabbitMQ_POC\\publisher\\rabbitMQ.publisher\\rabbitMQ.publisher\\rabbitMQ.publisher.csproj",
+  "projectFilePath": "/media/elielfranca90/Dados/eliel-2024/dev/rabbitmq_publisher/rabbitMQ.publisher/rabbitMQ.publisher.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\S2kno\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\S2kno\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
-    "C:\\Users\\S2kno\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\S2kno\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
-    "C:\\Users\\S2kno\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+    "/home/elielfranca90/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/elielfranca90/.nuget/packages/rabbitmq.client/6.8.1/rabbitmq.client.6.8.1.nupkg.sha512",
+    "/home/elielfranca90/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/home/elielfranca90/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }
